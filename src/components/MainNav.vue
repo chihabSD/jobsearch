@@ -12,12 +12,23 @@
           </li>
         </ul>
       </nav>
+      <!-- Login button -->
+      <div class="flex ml-auto h-full items-center">
+        <ProfileImage v-if="isloggedIn"/>
+        <ActionButton  v-else />
+      </div>
     </div>
   </div>
 </template>
 <script>
+import ActionButton from './ActionButton.vue';
+import ProfileImage from './ProfileImage.vue';
 export default {
   name: "MainNav",
+  components:{
+    ActionButton,
+    ProfileImage
+  }, 
   data() {
     return {
       company: "Bobo Career",
@@ -28,8 +39,10 @@ export default {
         'How we hire', 
         'Students', 
         'Jobs', 
-      ]
+      ], 
+      isloggedIn:false
     };
+    
   },
 };
 </script>
